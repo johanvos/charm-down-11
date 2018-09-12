@@ -1,0 +1,16 @@
+include 'plugins/core'
+include 'plugins/core/android'
+include 'plugins/core/ios'
+include 'plugins/plugin-storage'
+include 'plugins/plugin-storage/android'
+include 'plugins/plugin-storage/desktop'
+include 'plugins/plugin-storage/ios'
+
+
+rootProject.name = 'Charm Down'
+
+rootProject.children.each { project ->
+    int slash = project.name.indexOf('/')
+    project.name = project.name[(slash+1)..-1]
+}
+
