@@ -29,6 +29,15 @@
 #include "Lifecycle.h"
 
 extern JNIEnv *jEnv;
+
+#define GLASS_CHECK_EXCEPTION(ENV)                                                 \
+do {                                                                               \
+jthrowable t = (*ENV)->ExceptionOccurred(ENV);                                 \
+if (t) {                                                                       \
+(*ENV)->ExceptionClear(ENV); \
+};                                                                             \
+} while (0)
+
 #define GET_MAIN_JENV \
 if (jEnv == NULL) NSLog(@"ERROR: Java has been detached already, but someone is still trying to use it at %s:%s:%d\n", __FUNCTION__, __FILE__, __LINE__);\
 JNIEnv *env = jEnv;

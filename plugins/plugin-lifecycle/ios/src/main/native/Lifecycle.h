@@ -27,7 +27,7 @@
  */
 
 #import <UIKit/UIKit.h>
-#include "Charm.h"
+#include "jni.h"
 
 @interface Lifecycle : UIViewController <UIApplicationDelegate> {}
  - (void) initEvents;

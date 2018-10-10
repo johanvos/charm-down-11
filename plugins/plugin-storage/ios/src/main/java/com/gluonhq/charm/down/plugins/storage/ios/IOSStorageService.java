@@ -27,6 +27,7 @@
  */
 package com.gluonhq.charm.down.plugins.storage.ios;
 
+import com.gluonhq.charm.down.plugins.core.ios.IOSPlatform;
 import com.gluonhq.charm.down.plugins.storage.StorageService;
 
 import java.io.File;
