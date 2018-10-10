@@ -31,7 +31,7 @@ public class IOSPlatform {
 
     private static boolean isInited = false;
 
-    static void init() {
+    public static void init() {
         if (!isInited) {
             System.loadLibrary("Charm");
             isInited = true;

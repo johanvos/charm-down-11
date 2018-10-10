@@ -5,6 +5,10 @@ include 'plugins/plugin-storage'
 include 'plugins/plugin-storage/android'
 include 'plugins/plugin-storage/desktop'
 include 'plugins/plugin-storage/ios'
+include 'plugins/plugin-lifecycle'
+include 'plugins/plugin-lifecycle/android'
+include 'plugins/plugin-lifecycle/desktop'
+include 'plugins/plugin-lifecycle/ios'
 
 
 rootProject.name = 'Charm Down'
