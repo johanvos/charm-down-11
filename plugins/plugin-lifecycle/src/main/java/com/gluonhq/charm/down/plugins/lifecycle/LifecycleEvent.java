@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Gluon
+ * Copyright (c) 2016, 2018 Gluon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,27 +25,25 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.charm.down.plugins.desktop;
+package com.gluonhq.charm.down.plugins.lifecycle;
 
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleService;
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleEvent;
-import javafx.application.Platform;
+/**
+ * The life cycle events that can be listened to using {@link LifecycleService}.
+ *
+ * @see LifecycleService
+ * @since 3.0.0
+ */
+public enum LifecycleEvent {
 
-public class DesktopLifecycleService implements LifecycleService {
+    /**
+     * The PAUSE event is fired when an application loses focus (e.g. on Android / iOS when the focus is switched
+     * out of view (but still running in the background)).
+     */
+    PAUSE,
 
-    @Override public void shutdown() {
-        Platform.exit();
-    }
-
-    @Override
-    public void addListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
-    @Override
-    public void removeListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
-
+    /**
+     * Once an application is paused, when it is brought back as the primary application, it is considered to have
+     * resumed. This RESUME event will fire at that point in time.
+     */
+    RESUME
 }

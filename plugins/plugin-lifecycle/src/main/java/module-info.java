@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Gluon
+ * Copyright (c) 2018, Gluon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,27 +25,9 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.charm.down.plugins.desktop;
-
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleService;
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleEvent;
-import javafx.application.Platform;
-
-public class DesktopLifecycleService implements LifecycleService {
-
-    @Override public void shutdown() {
-        Platform.exit();
-    }
-
-    @Override
-    public void addListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
-    @Override
-    public void removeListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
-
+module com.gluonhq.charm.down.plugins.lifecycle {
+    requires java.logging;
+    requires com.gluonhq.charm.down.core;
+    exports com.gluonhq.charm.down.plugins.lifecycle;
 }
+

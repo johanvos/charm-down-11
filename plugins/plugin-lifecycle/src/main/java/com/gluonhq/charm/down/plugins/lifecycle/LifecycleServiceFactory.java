@@ -25,27 +25,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.charm.down.plugins.desktop;
+package com.gluonhq.charm.down.plugins.lifecycle;
 
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleService;
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleEvent;
-import javafx.application.Platform;
+import com.gluonhq.charm.down.core.DefaultServiceFactory;
 
-public class DesktopLifecycleService implements LifecycleService {
+public class LifecycleServiceFactory extends DefaultServiceFactory<LifecycleService> {
 
-    @Override public void shutdown() {
-        Platform.exit();
+    public LifecycleServiceFactory() {
+        super(LifecycleService.class);
     }
-
-    @Override
-    public void addListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
-    @Override
-    public void removeListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
 
 }

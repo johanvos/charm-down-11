@@ -28,8 +28,8 @@
 package com.gluonhq.charm.down.plugins.lifecycle.ios;
 
 import com.gluonhq.charm.down.plugins.core.ios.*;
-import com.gluonhq.charm.down.plugins.ios.lifecycle.LifecycleService;
-import com.gluonhq.charm.down.plugins.ios.lifecycle.LifecycleEvent;
+import com.gluonhq.charm.down.plugins.lifecycle.LifecycleService;
+import com.gluonhq.charm.down.plugins.lifecycle.LifecycleEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;

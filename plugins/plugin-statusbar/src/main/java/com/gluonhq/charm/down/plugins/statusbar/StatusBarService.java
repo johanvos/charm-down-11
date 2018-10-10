@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Gluon
+ * Copyright (c) 2016, 2018 Gluon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,49 +25,30 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.charm.down.plugins.ios.lifecycle;
+package com.gluonhq.charm.down.plugins.statusbar;
+
+import javafx.scene.paint.Color;
 
 /**
- * The lifecycle service provides a way to listen for events when the application is
- * being paused (put in the background) and resumed (brought back to the foreground).
- * It also allows the developer to properly shutdown the application.
+ * The status bar service provides access to the native status bar of the underlying platform.
+ * At the moment, it's only possible to change the color of the status bar.
  *
  * <p><b>Example</b></p>
  * <pre>
- * {@code Services.get(LifecycleService.class).ifPresent(service -> {
- *      service.addListener(LifecycleEvent.PAUSE, () -> System.out.println("Application is paused."));
- *      service.addListener(LifecycleEvent.RESUME, () -> System.out.println("Application is resumed."));
+ * {@code Services.get(StatusBarService.class).ifPresent(service -> {
+ *      service.setColor(Color.GOLD);
  *  });}</pre>
  *
  * <p><b>Android Configuration</b>: none</p>
  * <p><b>iOS Configuration</b>: none</p>
  *
- * @see LifecycleEvent
  * @since 3.0.0
  */
-public interface LifecycleService {
+public interface StatusBarService {
 
     /**
-     * Adds a life cycle event listener to the native platform, to be notified of
-     * {@link LifecycleEvent} events.
-     *
-     * @param lifecycleEvent The type of event to listen for.
-     * @param eventHandler The event handler that will be called when the event fires.
+     * Sets the color of the status bar to the specified color.
+     * @param color The color to set the status bar to.
      */
-    void addListener(LifecycleEvent lifecycleEvent, Runnable eventHandler);
-
-    /**
-     * Removes a previously installed event handler. If no such event handler is found,
-     * this method is a no-op.
-     *
-     * @param lifecycleEvent The type of event that was being listened to.
-     * @param eventHandler The event handler that should be removed.
-     */
-    void removeListener(LifecycleEvent lifecycleEvent, Runnable eventHandler);
-
-    /**
-     * Initiates the process of shutting down the application that called this method.
-     * This removes the need to perform any platform-specific shutdown routines.
-     */
-    void shutdown();
+    void setColor(Color color);
 }

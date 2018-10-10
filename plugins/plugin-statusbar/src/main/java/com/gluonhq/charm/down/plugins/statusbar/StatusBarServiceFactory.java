@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Gluon
+ * Copyright (c) 2016, 2018 Gluon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,9 +25,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package com.gluonhq.charm.down.plugins.statusbar;
 
-/**
- * Primary API package for Down - Lifecycle plugin, 
- * contains the interface {@link com.gluonhq.charm.down.plugins.ios.lifecycle.LifecycleService} and related classes.
- */
-package com.gluonhq.charm.down.plugins.ios.lifecycle;
+import com.gluonhq.charm.down.core.DefaultServiceFactory;
+
+public class StatusBarServiceFactory extends DefaultServiceFactory<StatusBarService> {
+
+    public StatusBarServiceFactory() {
+        super(StatusBarService.class);
+    }
+
+}

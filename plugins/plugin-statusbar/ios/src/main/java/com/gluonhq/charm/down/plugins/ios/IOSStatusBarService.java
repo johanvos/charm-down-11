@@ -25,27 +25,22 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.charm.down.plugins.desktop;
+package com.gluonhq.charm.down.plugins.ios;
 
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleService;
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleEvent;
-import javafx.application.Platform;
+import com.gluonhq.charm.down.plugins.StatusBarService;
+import javafx.scene.paint.Color;
 
-public class DesktopLifecycleService implements LifecycleService {
+public class IOSStatusBarService implements StatusBarService {
 
-    @Override public void shutdown() {
-        Platform.exit();
+    static {
+        IOSPlatform.init();
+        System.loadLibrary("StatusBar");
     }
 
     @Override
-    public void addListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
+    public void setColor(Color color) {
+        setNativeColor(color.getRed(), color.getGreen(), color.getBlue(), color.getOpacity());
     }
 
-    @Override
-    public void removeListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
-
+    private native void setNativeColor(double red, double green, double blue, double opacity);
 }

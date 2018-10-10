@@ -1,1 +1,11 @@
 ext.description = 'Common API'
+jar {
+  eachFile {
+                if ((it.name.endsWith('.class')) && !(it.name.equals('module-info.class') ))  {
+                    RandomAccessFile raf = new RandomAccessFile(it.file.path, "rw");
+                    raf.seek(7);
+                    raf.writeByte(0x34); //make it jdk8
+                    raf.close();
+                }
+            }
+}

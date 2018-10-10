@@ -1,0 +1,17 @@
+dependencies {
+    compile project(':core')
+}
+
+compileJava {
+    doFirst {
+        options.compilerArgs = [
+            '--module-path', classpath.asPath,
+            '--add-modules', 'com.gluonhq.charm.down.core'
+        ]
+        classpath = sourceSets.main.compileClasspath
+    }
+}
+
+
+
+ext.description = 'Common API to access display features'

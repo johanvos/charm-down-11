@@ -25,27 +25,9 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.charm.down.plugins.desktop;
 
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleService;
-import com.gluonhq.charm.down.plugins.lifecycle.LifecycleEvent;
-import javafx.application.Platform;
-
-public class DesktopLifecycleService implements LifecycleService {
-
-    @Override public void shutdown() {
-        Platform.exit();
-    }
-
-    @Override
-    public void addListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
-    @Override
-    public void removeListener(LifecycleEvent lifecycleEvent, Runnable eventHandler) {
-        // no-op
-    }
-
-
-}
+/**
+ * Primary API package for Down - Display plugin, 
+ * contains the interface {@link com.gluonhq.charm.down.plugins.DisplayService} and related classes.
+ */
+package com.gluonhq.charm.down.plugins;

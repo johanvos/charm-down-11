@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Gluon
+ * Copyright (c) 2018, Gluon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,14 +25,15 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.charm.down.plugins.ios.lifecycle;
 
-import com.gluonhq.charm.down.core.DefaultServiceFactory;
+#import <UIKit/UIKit.h>
+#include "Charm.h"
 
-public class LifecycleServiceFactory extends DefaultServiceFactory<LifecycleService> {
+@interface Display : UIViewController {}
+    - (void) isIPhoneX;
+    - (void) startObserver;
+    - (void) stopObserver;
+    - (NSString*) getNotch;
+@end
 
-    public LifecycleServiceFactory() {
-        super(LifecycleService.class);
-    }
-
-}
+void sendNotch();

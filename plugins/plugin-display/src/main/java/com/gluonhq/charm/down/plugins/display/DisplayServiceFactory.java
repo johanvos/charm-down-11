@@ -25,25 +25,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.gluonhq.charm.down.plugins.ios.lifecycle;
+package com.gluonhq.charm.down.plugins.display;
 
-/**
- * The life cycle events that can be listened to using {@link LifecycleService}.
- *
- * @see LifecycleService
- * @since 3.0.0
- */
-public enum LifecycleEvent {
+import com.gluonhq.charm.down.core.DefaultServiceFactory;
 
-    /**
-     * The PAUSE event is fired when an application loses focus (e.g. on Android / iOS when the focus is switched
-     * out of view (but still running in the background)).
-     */
-    PAUSE,
+public class DisplayServiceFactory extends DefaultServiceFactory<DisplayService> {
 
-    /**
-     * Once an application is paused, when it is brought back as the primary application, it is considered to have
-     * resumed. This RESUME event will fire at that point in time.
-     */
-    RESUME
+    public DisplayServiceFactory() {
+        super(DisplayService.class);
+    }
+
 }

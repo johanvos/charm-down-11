@@ -30,8 +30,8 @@ package com.gluonhq.charm.down.plugins.lifecycle.android;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import com.gluonhq.charm.down.plugins.ios.lifecycle.LifecycleService;
-import com.gluonhq.charm.down.plugins.ios.lifecycle.LifecycleEvent;
+import com.gluonhq.charm.down.plugins.lifecycle.LifecycleService;
+import com.gluonhq.charm.down.plugins.lifecycle.LifecycleEvent;
 import static com.gluonhq.impl.charm.down.plugins.android.AndroidApplication.getApplication;
 
 import java.util.ArrayList;
